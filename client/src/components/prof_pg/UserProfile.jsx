@@ -7,7 +7,6 @@ class UserProfile extends React.Component {
     super(props);
     var isFollowing = this.props.loggedInUser.followers.map(e => e.user_id).includes(this.props.user.user_id);
     this.state = {
-      //set default with GET
       following: isFollowing
     };
   }
@@ -20,8 +19,8 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div>
-        <ProfilePanel user={this.props.user} followUser={e => this.followUser(e)} isFollowed={this.state.following} />
-        <PictureGrid user={this.props.user} />
+        <ProfilePanel user={this.props.user} followUser={e => this.followUser(e)} loggedInUser={this.props.loggedInUser} isFollowed={this.state.following} />
+        <PictureGrid user={this.props.user} loggedInUser={this.props.loggedInUser} />
       </div>
     );
   }

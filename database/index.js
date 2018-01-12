@@ -67,7 +67,7 @@ const getUserPosts = function (usedId) {
 
 const addLike = function(userId, postId) {
   return pool.query('INSERT INTO likes (user_id, post_id, created_at) VALUES ($1, $2, $3)',
-    [userId, postId, moment.format()]);
+    [userId, postId, moment().format()]);
 };
 
 const rmLike = function(userId, postId) {
@@ -75,19 +75,19 @@ const rmLike = function(userId, postId) {
     [userId, postId]);
 };
 
-const addFollow = function(followerId, followingId) {
+const addFollow = function(followerId, followedId) {
   return pool.query('INSERT INTO followers (followed_user, following_user, created_at) VALUES ($1, $2, $3)',
-    [followingId, followerId, moment.format()]);
+    [followedId, followerId, moment().format()]);
 };
 
-const rmFollow = function(followerId, followingId) {
-  return pool.query('',
-    [followingId, followerId]);
+const rmFollow = function(followerId, followedId) {
+  return pool.query('DELETE from followers where followers.followed_user = $1 and followers.following_user = $2; ',
+    [followedId, followerId]);
 };
 
 const addComment = function(userId, postId, text) {
   return pool.query('INSERT INTO comments (user_id, post_id, text, created_at) VALUES ($1, $2, $3, $4)',
-    [userId, postId, text, moment.format()]);
+    [userId, postId, text, moment().format()]);
 };
 
 const rmComment = function(userId, postId) {

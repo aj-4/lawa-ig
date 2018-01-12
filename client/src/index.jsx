@@ -24,6 +24,7 @@ class App extends React.Component {
     //setup search component
     this.getAllUserNames();
     //render current user's page w fetch
+    this.loginUser(1);
     this.changeUser(1);
     //TODO//////////////render logged in user's profile here
     
@@ -37,6 +38,15 @@ class App extends React.Component {
   }
 
   changeUser(userId) {
+    this.mountUser(userId, 'change');
+  }
+
+  loginUser(userId) {
+    this.mountUser(userId, 'login');
+  }
+
+
+  mountUser(userId, changeOrLogin) {
     //get a specific user's profile - triggered by navbar search
     var bodyObj = {username: userId};
     var postConfig = {
@@ -46,9 +56,16 @@ class App extends React.Component {
       method: 'POST',
       body: JSON.stringify(bodyObj)
     };
-    fetch('/profile', postConfig)
-      .then(data => data.json())
-      .then(userDataObj => this.setState({onPageForUser: userDataObj}));
+
+    if (changeOrLogin === 'login') {
+      fetch('/profile', postConfig)
+        .then(data => data.json())
+        .then(userDataObj => this.setState({loggedInUser: userDataObj}));
+    } else {
+      fetch('/profile', postConfig)
+        .then(data => data.json())
+        .then(userDataObj => this.setState({onPageForUser: userDataObj}));
+    }
   }
 
   changePage(toPage) {

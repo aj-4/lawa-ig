@@ -12,7 +12,22 @@ class PicModal extends React.Component {
 
   toggleLike() {
     //PUSH picture data into logged in user's liked photos
-    this.setState({liked: !this.state.liked});
+    var bodyObj = {userId: this.props.loggedInUser.user_id, postId: this.props.post.post_id};
+
+    bodyObj.status = this.state.liked ? 'rmLike' : 'addLike';
+
+    var postConfig = {
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(bodyObj)
+    };
+
+    fetch('/like', postConfig)
+      .then(data => data.json())
+      .then(userDataObj => this.setState({liked: !this.state.liked}));
+
   }
 
   render() {
