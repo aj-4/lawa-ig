@@ -26,6 +26,18 @@ class ProfilePanel extends React.Component {
     fetch('/follow', postConfig);
     this.props.followUser();
 
+    let {description, name, prof_pic, user_id} = this.props.loggedInUser;
+    var loggedInFollowerObj = {
+      description: description,
+      name: name,
+      prof_pic: prof_pic,
+      user_id: user_id
+    };
+
+    bodyObj.status === 'addFollow' 
+      ? this.props.changeFollowersLive(loggedInFollowerObj, 'add') 
+      : this.props.changeFollowersLive(loggedInFollowerObj, 'rm');
+
   }
 
   render() {

@@ -37,6 +37,19 @@ class App extends React.Component {
       .catch(err => console.log('error fetching allprofiles'));
   }
 
+  changeFollowersLive (followerObj, addOrRm) {
+    var user = this.state.onPageForUser;
+    
+    if (addOrRm === 'add') {
+      user.followers.push(followerObj);
+      this.setState({onPageForUser: user});
+    } else {
+      user.followers = user.followers.filter(follower => followerObj.user_id !== follower.user_id);
+      this.setState({onPageForUser: user});
+    }
+
+  }
+
   changeUser(userId) {
     this.mountUser(userId, 'change');
   }
@@ -86,7 +99,10 @@ class App extends React.Component {
         <div>
           <NavBar allUsers={this.state.allUsernames} changeUser={e => this.changeUser(e)} changePage={e => this.changePage(e)}/> {/* Albert */}
           {this.state.onPageForUser &&
-            <UserProfile loggedInUser={this.state.loggedInUser} user={this.state.onPageForUser} />
+            <UserProfile 
+              loggedInUser={this.state.loggedInUser} 
+              user={this.state.onPageForUser} 
+              changeFollowersLive = {this.changeFollowersLive.bind(this)} />
           }
         </div>
       );

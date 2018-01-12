@@ -19,7 +19,12 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div>
-        <ProfilePanel user={this.props.user} followUser={e => this.followUser(e)} loggedInUser={this.props.loggedInUser} isFollowed={this.state.following} />
+        <ProfilePanel user={this.props.user} 
+          followUser={e => this.followUser(e)} 
+          loggedInUser={this.props.loggedInUser} 
+          isFollowed={this.state.following}
+          changeFollowersLive={this.props.changeFollowersLive} 
+        />
         <PictureGrid user={this.props.user} loggedInUser={this.props.loggedInUser} />
       </div>
     );
