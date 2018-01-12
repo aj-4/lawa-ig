@@ -71,7 +71,12 @@ const addLike = function(userId, postId) {
 };
 
 const rmLike = function(userId, postId) {
-  return pool.query('',
+  return pool.query('DELETE from likes where likes.user_id = $1 and likes.post_id = $2',
+    [userId, postId]);
+};
+
+const checkLike = function(userId, postId) {
+  return pool.query('SELECT * from likes WHERE likes.user_id = $1 and likes.post_id = $2',
     [userId, postId]);
 };
 
@@ -111,5 +116,6 @@ module.exports = {
   addComment,
   rmComment,
   checkForUser,
-  insertNewFbUser
+  insertNewFbUser,
+  checkLike
 };

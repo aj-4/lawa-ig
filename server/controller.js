@@ -143,8 +143,10 @@ module.exports = {
     } 
   },
   changeLike: function(req, res) {
-    console.log('reqbody for addLike', req.body);
-    if (req.body.status === 'addLike') {
+    if (req.body.status === 'checkLike') {
+      db.checkLike(req.body.userId, req.body.postId)
+        .then(data => res.status(201).json(data));
+    } else if (req.body.status === 'addLike') {
       db.addLike(req.body.userId, req.body.postId)
         .then(res.status(201).send('Liked!'));
     } else if (req.body.status === 'rmLike') {
@@ -154,14 +156,12 @@ module.exports = {
   },
 
   changeFollow: function(req, res) {
-    console.log('reqbody for addFollow', req.body);
     if (req.body.status === 'addFollow') {
       db.addFollow(req.body.followerId, req.body.followedId)
         .then(res.status(201).send('Followed!'));
     } else if (req.body.status === 'rmFollow') {
       db.rmFollow(req.body.followerId, req.body.followedId)
         .then(res.status(201).send('Unfollowed!'));
-    }
-    
+    } 
   }
 };

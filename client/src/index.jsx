@@ -97,12 +97,16 @@ class App extends React.Component {
     if (currentPg === 'user_profile') {
       return (
         <div>
-          <NavBar allUsers={this.state.allUsernames} changeUser={e => this.changeUser(e)} changePage={e => this.changePage(e)}/> {/* Albert */}
+          <NavBar allUsers={this.state.allUsernames} 
+            allUsers={this.state.allUsernames} 
+            changeUser={e => this.changeUser(e)} 
+            changePage={e => this.changePage(e)}/> {/* Albert */}
           {this.state.onPageForUser &&
             <UserProfile 
               loggedInUser={this.state.loggedInUser} 
               user={this.state.onPageForUser} 
-              changeFollowersLive = {this.changeFollowersLive.bind(this)} />
+              changeFollowersLive = {this.changeFollowersLive.bind(this)} 
+            />
           }
         </div>
       );
@@ -113,7 +117,11 @@ class App extends React.Component {
     } else if (currentPg === 'feed') {
       return (
         <div>
-          <NavBar allUsers={this.state.allUsernames} changeUser={e => this.changeUser(e)} changePage={e => this.changePage(e)}/> {/* Albert */}
+          <NavBar 
+            allUsers={this.state.allUsernames} 
+            changeUser={e => this.changeUser(e)} 
+            changePage={e => this.changePage(e)}
+          /> {/* Albert */}
           <AllFeeds data={this.state.onPageForUser} /> {/*Larry*/}
         </div>
       );

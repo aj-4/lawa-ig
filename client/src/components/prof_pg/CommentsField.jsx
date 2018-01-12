@@ -19,7 +19,7 @@ const CommentsField = (props) => {
           <Divider />
           <Image className="heart-icon" src={props.isLiked ? './assets/redheart.png' : './assets/like-icon.png'} onClick={props.toggleLike} size='mini' inline/>  
           <Image src="./assets/comment-icon.png" size='mini' inline/>                  
-          <Header className='likes-text' size='small'>{props.post.like_count} Likes</Header>
+          <Header className='likes-text' size='small'>{props.likeCount} Likes</Header>
           <p className='post-date'> {props.post.date} </p>
           <Divider />
           <Input className='add-comment-input' focus placeholder='Add a Comment...' />

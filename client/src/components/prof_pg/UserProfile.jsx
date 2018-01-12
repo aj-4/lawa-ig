@@ -5,9 +5,9 @@ import PictureGrid from './PictureGrid.jsx';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    var isFollowing = this.props.loggedInUser.followers.map(e => e.user_id).includes(this.props.user.user_id);
+    var isFollowed = this.props.loggedInUser.followers.map(e => e.user_id).includes(this.props.user.user_id);
     this.state = {
-      following: isFollowing
+      following: isFollowed
     };
   }
 
