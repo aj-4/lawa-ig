@@ -45,7 +45,6 @@ class App extends React.Component {
     this.mountUser(userId, 'login');
   }
 
-
   mountUser(userId, changeOrLogin) {
     //get a specific user's profile - triggered by navbar search
     var bodyObj = {username: userId};

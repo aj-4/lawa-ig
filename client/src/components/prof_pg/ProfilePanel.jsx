@@ -6,15 +6,14 @@ class ProfilePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      followed: this.props.isFollowing
+      followed: this.props.isFollowed,
     };
   }
 
   toggleFollow() {
     //PUSH picture data into logged in user's liked photos
     var bodyObj = {followerId: this.props.loggedInUser.user_id, followedId: this.props.user.user_id};
-
-    bodyObj.status = this.state.followed ? 'rmFollow' : 'addFollow';
+    bodyObj.status = this.props.isFollowed ? 'rmFollow' : 'addFollow';
 
     var postConfig = {
       headers: {
@@ -24,10 +23,7 @@ class ProfilePanel extends React.Component {
       body: JSON.stringify(bodyObj)
     };
 
-    fetch('/follow', postConfig)
-      .then(data => data.json())
-      .then(userDataObj => this.setState({followed: !this.state.followed}));
-
+    fetch('/follow', postConfig);
     this.props.followUser();
 
   }
@@ -59,7 +55,7 @@ class ProfilePanel extends React.Component {
                   })}</List></Modal.Content>
                 </Modal></span>
               <span className='profile-sub-data'>
-                <Modal size="mini" trigger={<span><span className='profile-sub-data-num'>{this.props.user.following.length} </span>followers</span>}>
+                <Modal size="mini" trigger={<span><span className='profile-sub-data-num'>{this.props.user.following.length} </span>following</span>}>
                   <Modal.Header>Following</Modal.Header>
                   <Modal.Content scrolling><List divided verticalAlign='middle'>{this.props.user.following.map((following) => {
                     return <List.Item><Image avatar src={following.prof_pic} /><List.Content className="follow">{following.name}</List.Content><List.Content className="small-button" floated="right"><Button color="blue" size="mini">Following</Button></List.Content></List.Item>;
