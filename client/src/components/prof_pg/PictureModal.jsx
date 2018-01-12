@@ -44,6 +44,37 @@ class PicModal extends React.Component {
     }
   }
 
+  getLikesOnPost() {
+    var bodyObj = {postId: this.props.post.post_id};
+    bodyObj.status = 'getAllLikes';
+
+    var postConfig = {
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(bodyObj)
+    };
+
+    fetch('/like', postConfig)
+      .then(data => data.json())
+      .then(jsonData => {
+        this.setState({postLikes: jsonData.rows});
+      });
+  }
+
+  changeLikesLive (likerObj, addOrRm) {
+    var postLikes = this.state.postLikes;
+    
+    if (addOrRm === 'add') {
+      postLikes.push(likerObj);
+      this.setState({postLikes: postLikes});
+    } else {
+      postLikes = postLikes.filter(like => likerObj.user_id !== like.user_id);
+      this.setState({postLikes: postLikes});
+    }
+  }
+
   liveUpdateLike() {
     let { postLikes } = this.state;
 
@@ -142,7 +173,7 @@ class PicModal extends React.Component {
             <Divider className='top-div-modal'/>
       
             <CommentsField user={this.props.user} 
-              likeCount={this.state.postLikes} 
+              likeCount={this.state.postLikes.length} 
               post={this.props.post} 
               toggleLike={e => this.toggleLike(e)} 
               isLiked={this.state.liked}

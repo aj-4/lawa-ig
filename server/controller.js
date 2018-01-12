@@ -183,11 +183,17 @@ module.exports = {
       db.checkLike(req.body.userId, req.body.postId)
         .then(data => res.status(201).json(data));
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (req.body.status === 'getAllLikes') {
       db.getLikesOnPost(req.body.postId)
         .then(data => res.status(201).json(data));
 =======
 >>>>>>> likes add/rm working
+=======
+    } else if (req.body.status === 'getAllLikes') {
+      db.getLikesOnPost(req.body.postId)
+        .then(data => res.status(201).json(data));
+>>>>>>> like and follow work!
     } else if (req.body.status === 'addLike') {
       db.addLike(req.body.userId, req.body.postId)
         .then(res.status(201).send('Liked!'));
@@ -199,13 +205,19 @@ module.exports = {
 
   changeFollow: function(req, res) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> like and follow work!
     if (req.body.status === 'checkFollow') {
       db.checkFollow(req.body.followerId, req.body.followedId)
         .then(data => res.status(201).json(data));
     } else if (req.body.status === 'addFollow') {
+<<<<<<< HEAD
 =======
     if (req.body.status === 'addFollow') {
 >>>>>>> likes add/rm working
+=======
+>>>>>>> like and follow work!
       db.addFollow(req.body.followerId, req.body.followedId)
         .then(res.status(201).send('Followed!'));
     } else if (req.body.status === 'rmFollow') {
