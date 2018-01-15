@@ -108,11 +108,7 @@ class App extends React.Component {
   }
   logIn(e) {
     axios.post('/logon', {
-<<<<<<< HEAD
         email: e.value,
-=======
-      email: e.value
->>>>>>> profile name clicks work
     })
       .then(function (response) {
         if (typeof response.data === 'string') {
@@ -126,7 +122,6 @@ class App extends React.Component {
     axios.post('/id', {
       email: e.value,
     })
-<<<<<<< HEAD
     .then(response => {
       if (typeof response.data === 'string') {
         return;
@@ -138,18 +133,6 @@ class App extends React.Component {
     .catch(function(error) {
       console.log('there was an error with your log in information', error);
     })
-=======
-      .then(response => {
-        console.log('here is the id', response.data);
-        console.log('this', this);
-        this.loginUser(response.data);
-        this.changeUser(response.data);
-      })
-      .catch(function(error) {
-        console.log('there was an error here', error);
-      });
-    this.setState({currentPg: 'user_profile'});
->>>>>>> profile name clicks work
   }
 
   logOut() {
@@ -182,11 +165,8 @@ class App extends React.Component {
             loggedInUser={this.state.loggedInUser} 
             logOut={this.logOut.bind(this)}
             changePage={e => this.changePage(e)}
-<<<<<<< HEAD
-=======
-            newUpload={this.newUpload.bind(this)}
             activeMenuItem = {this.state.activeMenuItem}
->>>>>>> profile name clicks work
+
           /> {/* Albert */}
           {this.state.onPageForUser &&
             <UserProfile 
