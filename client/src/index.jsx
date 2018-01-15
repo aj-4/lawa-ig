@@ -83,8 +83,9 @@ class App extends React.Component {
 
   changePage(toPage) {
     if (toPage === 'home') {
-      this.setState({currentPg: 'feed',
-        activeMenuItem: 'feed'
+      this.setState({
+        currentPg: 'feed',
+        activeMenuItem: 'home'
       });
     } else if (toPage === 'profile') {
       this.setState({currentPg: 'user_profile',
