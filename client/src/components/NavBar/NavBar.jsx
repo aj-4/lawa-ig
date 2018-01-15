@@ -8,10 +8,16 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeItem: 'profile',
+      activeItem: this.props.activeMenuItem,
       selectedOption: ''
     };
     this.handleItemClick = this.handleItemClick.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.activeMenuItem !== this.state.activeItem) {
+      this.setState({activeItem: this.props.activeMenuItem});
+    }
   }
   
   handleItemClick(e, { name }) {
@@ -22,7 +28,6 @@ class NavBar extends React.Component {
   handleChange(selectedOption) {
     this.setState({ selectedOption });
     this.props.changeUser(selectedOption.name);
-    console.log(`Selected: ${selectedOption.label} id is ${selectedOption.name}`);
   }
 
   selectSubmit(e) {
