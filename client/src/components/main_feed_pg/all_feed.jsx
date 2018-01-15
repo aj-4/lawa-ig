@@ -53,10 +53,10 @@ class AllFeeds extends React.Component {
 		return (
 			<div>
 				<div className="feedBar">
-					<FeedBar loggedInUser={this.state.userInfo} />
+					<FeedBar loggedInUser={this.state.userInfo} clickToSwitchUser={this.props.clickToSwitchUser}/>
 				</div>
 				<div className="all-feeds">
-					<FeedGrid loggedInUser={this.state.loggedInUser} userFeeds={this.state.userFeeds} />
+					<FeedGrid loggedInUser={this.state.loggedInUser} userFeeds={this.state.userFeeds} clickToSwitchUser={this.props.clickToSwitchUser} />
 				</div>
 			</div>
 		)

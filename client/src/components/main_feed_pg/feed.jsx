@@ -176,11 +176,15 @@ class OneFeed extends React.Component {
 
   }
 
+  switchToUser(e) {
+    this.props.clickToSwitchUser(this.props.userid);
+  }
+
   //everything rendered on ONE individual post on /feed
 	render () {
 		return (
 			<div className="ui card">
-			  <div className="content">
+			  <div className="content" onClick={e => this.switchToUser(e)}>
 			    <img className="ui avatar image" src={this.props.pic}/>{this.props.name}
 			  </div>
 			  <div className="image">

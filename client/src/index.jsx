@@ -143,6 +143,11 @@ class App extends React.Component {
     });
   }
 
+  clickToSwitchUser(userId) {
+    this.changeUser(userId);
+    this.setState({currentPg: 'user_profile'});
+  }
+
   pageRouter(currentPg) {
     if (currentPg === 'user_profile') {
       return (
@@ -177,7 +182,10 @@ class App extends React.Component {
             logOut={this.logOut.bind(this)}
             changePage={e => this.changePage(e)}
           /> {/* Albert */}
-          <AllFeeds user={this.state.loggedInUser} /> {/*Larry*/}
+          <AllFeeds 
+            user={this.state.loggedInUser} 
+            clickToSwitchUser = {this.clickToSwitchUser.bind(this)}
+          /> {/*Larry*/}
         </div>
       );
     }

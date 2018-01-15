@@ -231,6 +231,10 @@
     padding: 0;
 }
 
+.content:hover {
+    cursor: pointer;
+}
+
 .ui.container {
     min-height: 10%;
     padding-top: 20px;
@@ -324,11 +328,10 @@ i.close.small.icon.comment-close-icon {
     margin-left: 220px;
 } */
 
-.ui.list {
+.feed-grid-container .ui.list {
     font-size: 1em;
     width: 200px;
     min-height: 500px;
-
 }
 
 .feedBar {
@@ -367,18 +370,6 @@ i.close.small.icon.comment-close-icon {
   font-weight: bold;
   float: left;
 }
-/* .ui.card [class*="left floated"], .ui.cards>.card [class*="left floated"] {
-    float: left;
-}
-
-
-semantic.min.css:19
-
-
-.heart-icon {
-    width: 35px;
-    height: 35px;
-}
 
 /*feed page*/
 .ui.card, .ui.cards>.card {
@@ -388,14 +379,9 @@ semantic.min.css:19
     min-width: 300px;
 }
 
-/*.ui.divided.list .ff-modal-listItem {
-    padding: 10em;
-}*/
-
-/*.ui.divided.list>.item {
+.ui.divided.list>.item {
     padding: 15px 5px;
-}*/
-
+}
 
 .feedBar .ui.list {
     font-size: 1em;
