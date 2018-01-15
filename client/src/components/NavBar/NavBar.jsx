@@ -15,14 +15,12 @@ class NavBar extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.activeMenuItem);
     if (this.props.activeMenuItem !== this.state.activeItem) {
       this.setState({activeItem: this.props.activeMenuItem});
     }
   }
   
   handleItemClick(e, { name }) {
-    console.log('name is' + name);
     this.setState({ activeItem: name });
     this.props.changePage(name);
   }
@@ -34,7 +32,6 @@ class NavBar extends React.Component {
 
   selectSubmit(e) {
     e.preventDefault();
-    console.log(e);
   }
 
   render() {
