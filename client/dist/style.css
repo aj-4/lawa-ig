@@ -125,6 +125,12 @@
       position: absolute;
       left: 50%;
       top: 40%;
+      background-color: #fff;
+      padding: 0 10px;
+  }
+
+  .dynamic-select:hover {
+      cursor:pointer;
   }
 
   .follow-button.ui.primary.button {
@@ -139,6 +145,10 @@
     font-size: 1.25rem;
     margin-right: 6%;
     font-family: 'Heebo', sans-serif;
+  }
+
+  .profile-sub-data:hover {
+      cursor: pointer;
   }
 
   .header-caption {
