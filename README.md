@@ -1,10 +1,10 @@
 # Instalawa
 
 > A full-fledged instagram replica
->> Stack: React, NodeJS, Express, PostgreSQL
+>> Stack: React, NodeJS, Express, PostgreSQL, Semantic UI
 
 # Demo
-
+![Demo](https://media.giphy.com/media/326faEs3hmc6LURSUe/giphy.gif)
 
 ## Contributors
 
@@ -14,7 +14,3 @@
   - Larry Chang
 
 View the project roadmap [here](https://github.com/lawa-ig/lawa-ig/wiki/Insta-Product-Roadmap)
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
