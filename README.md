@@ -1,4 +1,4 @@
-# Lawagram
+# Instalawa
 
 > A full-fledged instagram replica
 >> Stack: React, NodeJS, Express, PostgreSQL
