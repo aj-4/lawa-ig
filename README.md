@@ -1,4 +1,4 @@
-# Instagram 2.0
+# Lawagram
 
 > A full-fledged instagram replica
 >> Stack: React, NodeJS, Express, PostgreSQL
